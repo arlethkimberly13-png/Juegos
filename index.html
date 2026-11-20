@@ -1,0 +1,127 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#081426">
+  <title>Mis 15 | Juegos interactivos</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <header class="topbar">
+    <div>
+      <span class="eyebrow">MIS QUINCE AÑOS</span>
+      <h1>Juegos interactivos</h1>
+    </div>
+    <span class="live-indicator"><i></i> En vivo</span>
+  </header>
+
+  <main class="container">
+    <!-- PARTICIPANTES -->
+    <section id="participantView" class="hidden">
+      <div class="hero-card">
+        <span class="eyebrow">¡QUE COMIENCE LA DIVERSIÓN!</span>
+        <h2 id="mesaTitle">Mesa</h2>
+        <p id="participantGreeting">Bienvenido a los juegos de esta noche.</p>
+      </div>
+
+      <div id="registrationCard" class="panel hidden">
+        <h2>Registra tu participación</h2>
+        <p>Escribe tu nombre para identificarte en tu mesa.</p>
+        <form id="registrationForm">
+          <label for="participantName">Tu nombre</label>
+          <input id="participantName" type="text" minlength="2"
+                 maxlength="60" placeholder="Ej. María" required>
+          <button type="submit">Unirme a mi mesa</button>
+        </form>
+        <p id="registrationMessage" class="message"></p>
+      </div>
+
+      <div id="participantInfo" class="panel hidden">
+        <span class="eyebrow">PARTICIPANTE REGISTRADO</span>
+        <h2 id="registeredName"></h2>
+        <p id="registeredMesa"></p>
+        <div class="song-box">
+          <span>🎵 Canción asignada</span>
+          <strong id="participantSong">Por asignar</strong>
+        </div>
+        <div class="score-box">
+          <span>Puntuación de tu mesa</span>
+          <strong id="participantScore">—</strong>
+          <small id="participantPosition">Aún sin posición</small>
+        </div>
+      </div>
+
+      <div class="panel">
+        <div class="section-heading">
+          <div>
+            <span class="eyebrow">COMPETENCIA</span>
+            <h2>Tabla de posiciones</h2>
+          </div>
+          <span class="live-tag">Actualización en vivo</span>
+        </div>
+        <div id="publicRanking" class="ranking-list">
+          <p class="muted">Cargando clasificación...</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- JURADO -->
+    <section id="juryView" class="hidden">
+      <div class="hero-card">
+        <span class="eyebrow">PANEL DEL JURADO</span>
+        <h2>Calificación de mesas</h2>
+        <p>Registra las puntuaciones de cada mesa.</p>
+      </div>
+
+      <div id="loginCard" class="panel">
+        <h2>Iniciar sesión</h2>
+        <form id="loginForm">
+          <label for="juryEmail">Correo electrónico</label>
+          <input id="juryEmail" type="email" required placeholder="jurado@correo.com">
+          <label for="juryPassword">Contraseña</label>
+          <input id="juryPassword" type="password" required placeholder="••••••••">
+          <button type="submit">Ingresar al panel</button>
+        </form>
+        <p id="loginMessage" class="message"></p>
+      </div>
+
+      <div id="juryPanel" class="hidden">
+        <div class="panel jury-welcome">
+          <div>
+            <span class="eyebrow">SESIÓN ACTIVA</span>
+            <h2 id="juryName">Jurado</h2>
+          </div>
+          <button id="logoutButton" class="button-secondary">Cerrar sesión</button>
+        </div>
+
+        <div class="panel">
+          <div class="section-heading">
+            <div>
+              <span class="eyebrow">EVALUACIÓN</span>
+              <h2>Mesas participantes</h2>
+            </div>
+          </div>
+          <label for="gameSelect">Selecciona el juego que vas a evaluar</label>
+<select id="gameSelect">
+  <option value="">Cargando juegos...</option>
+</select>
+          <p class="muted">Asigna una nota del 0 al 100 a cada mesa. Puedes modificarla después.</p>
+          <div id="juryTables" class="jury-table-list">
+            <p class="muted">Cargando mesas...</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <p id="globalMessage" class="message global-message"></p>
+  </main>
+
+  <footer>
+    <p>Mis 15 años · Una noche para recordar ✨</p>
+  </footer>
+</body>
+</html>

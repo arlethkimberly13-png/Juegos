@@ -1,0 +1,353 @@
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap');
+
+:root {
+  --background: #081426;
+  --panel: #10213a;
+  --panel-light: #172c48;
+  --gold: #d8b875;
+  --cream: #f7f1e5;
+  --muted: #aab6c7;
+  --border: rgba(216, 184, 117, .2);
+  --success: #70d6a2;
+  --danger: #ff9292;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  color: var(--cream);
+  background:
+    radial-gradient(ellipse at top, #172b47 0%, transparent 55%),
+    var(--background);
+  font-family: 'DM Sans', sans-serif;
+}
+
+.topbar {
+  padding: 22px max(6%, calc((100% - 1050px) / 2));
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--border);
+  background: rgba(8, 20, 38, .8);
+}
+
+h1, h2, p {
+  margin-top: 0;
+}
+
+h1, h2 {
+  font-family: 'Playfair Display', serif;
+}
+
+h1 {
+  margin-bottom: 0;
+  font-size: 25px;
+}
+
+h2 {
+  margin-bottom: 10px;
+  font-size: 25px;
+}
+
+.eyebrow {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--gold);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.live-indicator, .live-tag {
+  color: var(--success);
+  font-size: 12px;
+}
+
+.live-indicator {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.live-indicator i {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--success);
+  box-shadow: 0 0 12px var(--success);
+}
+
+.container {
+  width: min(920px, 90%);
+  margin: 35px auto;
+  min-height: 70vh;
+}
+
+.hero-card {
+  padding: 32px;
+  margin-bottom: 22px;
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  background: linear-gradient(130deg, #1b3453, #10213a);
+}
+
+.hero-card h2 {
+  font-size: clamp(30px, 6vw, 42px);
+}
+
+.hero-card p, .panel p {
+  color: var(--muted);
+  margin-bottom: 0;
+}
+
+.panel {
+  padding: 25px;
+  margin-bottom: 20px;
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  background: rgba(16, 33, 58, .94);
+}
+
+label {
+  display: block;
+  margin: 18px 0 8px;
+  color: var(--cream);
+  font-size: 13px;
+}
+
+input {
+  width: 100%;
+  padding: 14px;
+  color: var(--cream);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  outline: none;
+  background: #09182b;
+  font: inherit;
+}
+
+input:focus {
+  border-color: var(--gold);
+}
+
+button {
+  width: 100%;
+  padding: 14px 18px;
+  margin-top: 18px;
+  color: #172033;
+  border: none;
+  border-radius: 10px;
+  background: var(--gold);
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+  transition: .2s;
+}
+
+button:hover {
+  filter: brightness(1.08);
+  transform: translateY(-1px);
+}
+
+.button-secondary {
+  width: auto;
+  margin: 0;
+  padding: 10px 14px;
+  color: var(--cream);
+  border: 1px solid var(--border);
+  background: transparent;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.message {
+  margin-top: 12px;
+  font-size: 13px;
+}
+
+.message.error {
+  color: var(--danger);
+}
+
+.message.success {
+  color: var(--success);
+}
+
+.global-message {
+  text-align: center;
+}
+
+.song-box, .score-box {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 18px;
+  margin-top: 16px;
+  border-radius: 12px;
+  background: var(--panel-light);
+}
+
+.song-box span, .score-box span, .score-box small {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.song-box strong {
+  color: var(--gold);
+  font-size: 18px;
+}
+
+.score-box strong {
+  font-family: 'Playfair Display', serif;
+  font-size: 34px;
+}
+
+.section-heading, .jury-welcome {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+}
+
+.section-heading h2, .jury-welcome h2 {
+  margin-bottom: 0;
+}
+
+.ranking-list, .jury-table-list {
+  display: grid;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.ranking-item {
+  display: grid;
+  grid-template-columns: 42px 1fr auto;
+  gap: 12px;
+  align-items: center;
+  padding: 14px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--panel-light);
+}
+
+.rank-number {
+  color: var(--gold);
+  font-family: 'Playfair Display', serif;
+  font-size: 23px;
+  text-align: center;
+}
+
+.rank-name {
+  font-weight: 700;
+}
+
+.rank-detail {
+  margin-top: 4px;
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.rank-score {
+  color: var(--gold);
+  font-weight: 700;
+  text-align: right;
+}
+
+.jury-table {
+  padding: 16px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--panel-light);
+}
+
+.jury-table-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
+.jury-table-header strong {
+  color: var(--cream);
+}
+
+.jury-table input {
+  margin-top: 12px;
+}
+
+.jury-table button {
+  margin-top: 10px;
+}
+
+.muted {
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+footer {
+  padding: 25px;
+  color: var(--muted);
+  text-align: center;
+  font-size: 12px;
+}
+
+@media (max-width: 600px) {
+  .topbar {
+    padding: 18px 5%;
+  }
+
+  h1 {
+    font-size: 20px;
+  }
+
+  .container {
+    width: 92%;
+    margin: 22px auto;
+  }
+
+  .hero-card, .panel {
+    padding: 20px;
+  }
+
+  .section-heading {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .jury-welcome {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .button-secondary {
+    width: 100%;
+  }
+
+  .ranking-item {
+    grid-template-columns: 32px 1fr auto;
+    padding: 12px 9px;
+  }
+}
+
+select {
+  width: 100%;
+  padding: 14px;
+  color: var(--cream);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  outline: none;
+  background: #09182b;
+  font: inherit;
+}
+
+select:focus {
+  border-color: var(--gold);
+}
